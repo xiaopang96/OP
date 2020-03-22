@@ -1,0 +1,34 @@
+[
+  {
+    "createBy": "admin",
+    "createDateTimeStr": "2018-03-16 11:33:00",
+    "createTimeStr": "2018-03-16",
+    "cssClass": "radio radio-info radio-inline",
+    "dictCode": 8,
+    "dictLabel": "正常",
+    "dictSort": 1,
+    "dictType": "sys_job_status",
+    "dictValue": "0",
+    "isDefault": "Y",
+    "remark": "正常状态",
+    "status": 0,
+    "updateDateTimeStr": "",
+    "updateTimeStr": ""
+  },
+  {
+    "createBy": "admin",
+    "createDateTimeStr": "2018-03-16 11:33:00",
+    "createTimeStr": "2018-03-16",
+    "cssClass": "radio radio-danger radio-inline",
+    "dictCode": 9,
+    "dictLabel": "暂停",
+    "dictSort": 2,
+    "dictType": "sys_job_status",
+    "dictValue": "1",
+    "isDefault": "N",
+    "remark": "停用状态",
+    "status": 0,
+    "updateDateTimeStr": "",
+    "updateTimeStr": ""
+  }
+]

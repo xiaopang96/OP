@@ -1,0 +1,404 @@
+[
+  {
+    "name": "新闻管理",
+    "checked": false,
+    "pId": 0,
+    "id": 75
+  },
+  {
+    "name": "权限管理",
+    "checked": false,
+    "pId": 0,
+    "id": 1
+  },
+  {
+    "name": "用户管理",
+    "checked": false,
+    "pId": 1,
+    "id": 2
+  },
+  {
+    "name": "系统参数",
+    "checked": false,
+    "pId": 5,
+    "id": 6
+  },
+  {
+    "name": "登录日志",
+    "checked": false,
+    "pId": 18,
+    "id": 7
+  },
+  {
+    "name": "文章管理",
+    "checked": false,
+    "pId": 12,
+    "id": 13
+  },
+  {
+    "name": "用户查询",
+    "checked": false,
+    "pId": 2,
+    "id": 32
+  },
+  {
+    "name": "角色查询",
+    "checked": false,
+    "pId": 3,
+    "id": 38
+  },
+  {
+    "name": "菜单查询",
+    "checked": false,
+    "pId": 4,
+    "id": 43
+  },
+  {
+    "name": "部门新增",
+    "checked": false,
+    "pId": 20,
+    "id": 48
+  },
+  {
+    "name": "岗位查询",
+    "checked": false,
+    "pId": 19,
+    "id": 52
+  },
+  {
+    "name": "字典查询",
+    "checked": false,
+    "pId": 31,
+    "id": 57
+  },
+  {
+    "name": "参数查询",
+    "checked": false,
+    "pId": 6,
+    "id": 62
+  },
+  {
+    "name": "公告查询",
+    "checked": false,
+    "pId": 11,
+    "id": 67
+  },
+  {
+    "name": "表单构建",
+    "checked": false,
+    "pId": 72,
+    "id": 73
+  },
+  {
+    "name": "新闻管理",
+    "checked": false,
+    "pId": 75,
+    "id": 76
+  },
+  {
+    "name": "角色管理",
+    "checked": false,
+    "pId": 1,
+    "id": 3
+  },
+  {
+    "name": "系统管理",
+    "checked": false,
+    "pId": 0,
+    "id": 5
+  },
+  {
+    "name": "操作日志",
+    "checked": false,
+    "pId": 18,
+    "id": 8
+  },
+  {
+    "name": "图片管理",
+    "checked": false,
+    "pId": 12,
+    "id": 14
+  },
+  {
+    "name": "日志管理",
+    "checked": false,
+    "pId": 5,
+    "id": 18
+  },
+  {
+    "name": "用户新增",
+    "checked": false,
+    "pId": 2,
+    "id": 33
+  },
+  {
+    "name": "角色新增",
+    "checked": false,
+    "pId": 3,
+    "id": 39
+  },
+  {
+    "name": "菜单新增",
+    "checked": false,
+    "pId": 4,
+    "id": 44
+  },
+  {
+    "name": "部门修改",
+    "checked": false,
+    "pId": 20,
+    "id": 49
+  },
+  {
+    "name": "岗位新增",
+    "checked": false,
+    "pId": 19,
+    "id": 53
+  },
+  {
+    "name": "字典新增",
+    "checked": false,
+    "pId": 31,
+    "id": 58
+  },
+  {
+    "name": "参数新增",
+    "checked": false,
+    "pId": 6,
+    "id": 63
+  },
+  {
+    "name": "公告新增",
+    "checked": false,
+    "pId": 11,
+    "id": 68
+  },
+  {
+    "name": "代码生成",
+    "checked": false,
+    "pId": 72,
+    "id": 74
+  },
+  {
+    "name": "资源管理",
+    "checked": false,
+    "pId": 1,
+    "id": 4
+  },
+  {
+    "name": "内容管理",
+    "checked": false,
+    "pId": 0,
+    "id": 12
+  },
+  {
+    "name": "标签管理",
+    "checked": false,
+    "pId": 12,
+    "id": 15
+  },
+  {
+    "name": "字典类型",
+    "checked": false,
+    "pId": 5,
+    "id": 31
+  },
+  {
+    "name": "用户修改",
+    "checked": false,
+    "pId": 2,
+    "id": 34
+  },
+  {
+    "name": "角色修改",
+    "checked": false,
+    "pId": 3,
+    "id": 40
+  },
+  {
+    "name": "菜单修改",
+    "checked": false,
+    "pId": 4,
+    "id": 45
+  },
+  {
+    "name": "部门删除",
+    "checked": false,
+    "pId": 20,
+    "id": 50
+  },
+  {
+    "name": "岗位修改",
+    "checked": false,
+    "pId": 19,
+    "id": 54
+  },
+  {
+    "name": "字典修改",
+    "checked": false,
+    "pId": 31,
+    "id": 59
+  },
+  {
+    "name": "参数修改",
+    "checked": false,
+    "pId": 6,
+    "id": 64
+  },
+  {
+    "name": "公告修改",
+    "checked": false,
+    "pId": 11,
+    "id": 69
+  },
+  {
+    "name": "数据监控",
+    "checked": false,
+    "pId": 5,
+    "id": 9
+  },
+  {
+    "name": "类型管理",
+    "checked": false,
+    "pId": 12,
+    "id": 16
+  },
+  {
+    "name": "岗位管理",
+    "checked": false,
+    "pId": 1,
+    "id": 19
+  },
+  {
+    "name": "用户删除",
+    "checked": false,
+    "pId": 2,
+    "id": 35
+  },
+  {
+    "name": "角色删除",
+    "checked": false,
+    "pId": 3,
+    "id": 41
+  },
+  {
+    "name": "菜单删除",
+    "checked": false,
+    "pId": 4,
+    "id": 46
+  },
+  {
+    "name": "部门保存",
+    "checked": false,
+    "pId": 20,
+    "id": 51
+  },
+  {
+    "name": "岗位删除",
+    "checked": false,
+    "pId": 19,
+    "id": 55
+  },
+  {
+    "name": "字典删除",
+    "checked": false,
+    "pId": 31,
+    "id": 60
+  },
+  {
+    "name": "参数删除",
+    "checked": false,
+    "pId": 6,
+    "id": 65
+  },
+  {
+    "name": "公告删除",
+    "checked": false,
+    "pId": 11,
+    "id": 70
+  },
+  {
+    "name": "系统工具",
+    "checked": false,
+    "pId": 0,
+    "id": 72
+  },
+  {
+    "name": "公告管理",
+    "checked": false,
+    "pId": 5,
+    "id": 10
+  },
+  {
+    "name": "留言管理",
+    "checked": false,
+    "pId": 12,
+    "id": 17
+  },
+  {
+    "name": "部门管理",
+    "checked": false,
+    "pId": 1,
+    "id": 20
+  },
+  {
+    "name": "用户保存",
+    "checked": false,
+    "pId": 2,
+    "id": 36
+  },
+  {
+    "name": "角色保存",
+    "checked": false,
+    "pId": 3,
+    "id": 42
+  },
+  {
+    "name": "菜单保存",
+    "checked": false,
+    "pId": 4,
+    "id": 47
+  },
+  {
+    "name": "岗位保存",
+    "checked": false,
+    "pId": 19,
+    "id": 56
+  },
+  {
+    "name": "字典保存",
+    "checked": false,
+    "pId": 31,
+    "id": 61
+  },
+  {
+    "name": "参数保存",
+    "checked": false,
+    "pId": 6,
+    "id": 66
+  },
+  {
+    "name": "公告保存",
+    "checked": false,
+    "pId": 11,
+    "id": 71
+  },
+  {
+    "name": "广告管理",
+    "checked": false,
+    "pId": 5,
+    "id": 11
+  },
+  {
+    "name": "重置密码",
+    "checked": false,
+    "pId": 2,
+    "id": 37
+  },
+  {
+    "name": "11",
+    "checked": false,
+    "pId": 5,
+    "id": 30
+  }
+]
