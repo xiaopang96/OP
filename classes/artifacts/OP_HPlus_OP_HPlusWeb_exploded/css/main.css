@@ -1,0 +1,65 @@
+/*-----------------------------------首页样式开始------------------------------------*/
+/*菜单样式开始---------------------------------------*/
+
+.navbar-static-top {
+    background: #273948;
+}
+.nav>li>a:focus,.nav>li>a:hover{
+    text-decoration: none;
+    background-color: #000;
+}
+.nav > li > a {
+    color: #fff;
+    font-weight: 600;
+}
+
+#side-menu a:focus{
+    background-color: #000;
+}
+.nav.navbar-right > li > a {
+    color: #FFF;
+}
+.minimalize-styl-2 {
+    padding: 4px 12px;
+    margin: 10px 15px 10px 20px;
+    font-size: 14px;
+    float: left;
+}
+
+#topMenu{
+    font-size: 0;
+}
+.nav > li.active {
+    border-left: none;
+    background: #000;
+}
+
+
+/*菜单样式结束---------------------------------------*/
+
+/*后台首页样式开始-----------------------------------*/
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col-sm-4 {
+    width: 33.33333333%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.index .media button {
+    height: 100px;
+    width: 150px;
+}
+.btn-primary {
+    background-color: #1ab394;
+    border-color: #1ab394;
+    color: #FFFFFF;
+}
+
+/*后台首页样式开始-----------------------------------*/
+
+/*-----------------------------------首页样式结束------------------------------------*/

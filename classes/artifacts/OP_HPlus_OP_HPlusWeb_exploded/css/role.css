@@ -1,0 +1,95 @@
+
+li {
+    list-style: none;
+}
+.select-info {
+    position: relative;
+}
+.select-info {
+    width: 100%;
+    background: #fff;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding-bottom: 13px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.2);
+}
+
+.select-list li {
+    float: left;
+    color: #333;
+    margin: 5px 15px 5px 0px;
+}
+
+.select-list li input {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    width: 280px;
+}
+.select-list li select {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    width: 280px;
+}
+
+.btn-rounded {
+    border-radius: 50px;
+}
+
+.btn-primary {
+    background-color: #1ab394;
+    border-color: #1ab394;
+    color: #FFFFFF;
+}
+
+.btn-success {
+    background-color: #1c84c6;
+    border-color: #1c84c6;
+    color: #FFFFFF;
+}
+
+.btn-success.focus,.btn-success:hover {
+    color: #fff;
+    background-color: skyblue;
+    border-color: deepskyblue;
+}
+.btn-info{
+    color: #5bc0de;
+}
+.container {
+    background-color: #F3F3F4;
+    width: 100%;
+    padding: 20px 45px;
+    height: 100%;
+
+}
+
+#toolbar>.btn-danger{
+     color: #d43f3a;
+    background-color: transparent;
+}
+#toolbar>.btn-success{
+    color: #1a7bb9;
+}
+
+.badge-primary {
+    background-color: #1ab394;
+}
+.badge-danger{
+    background-color:red;
+    color: #FFFFFF;
+}
+.form-group{
+    overflow: hidden;
+}
+
+.btn-outline {
+    background-color: transparent;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}

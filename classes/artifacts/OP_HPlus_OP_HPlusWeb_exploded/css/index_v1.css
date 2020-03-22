@@ -1,0 +1,19 @@
+.index .media button {
+    height: 100px;
+    width: 150px;
+}
+.index .media {
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+.index .media .media-right {
+    height: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+.col-sm-4{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
