@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>万和_CMS</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <title>xiaopang_96</title>
+    <link rel="shortcut icon" href="favicon.png">
     <!--bootstrap样式-->
     <link href="css/plugins/bootstrap/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <!--font-awesome图标-->
@@ -14,209 +14,268 @@
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
     <!--自定义样式-->
     <link rel="stylesheet" href="css/main.css">
+    <!--自动更新缓存-->
+    <script type="text/javascript">
+        document.write("<link rel='stylesheet' type='text/css' href='/css/layout.css?v="+new Date().getTime()+"'>");
+    </script>
 </head>
 
-<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
-<div id="wrapper">
-    <!--左侧导航开始-->
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="nav-close"><i class="fa fa-times-circle"></i>
-        </div>
-        <div class="sidebar-collapse">
-            <!--二级菜单的开始------------------------------------------------------>
-            <ul class="nav" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <span><img alt="image" class="img-circle" src="img/myIcon.jpg"/></span>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden" id="gray-bg">
+    <div id="wapper" class="mainApp" style="width: 100%;height: 100%">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <!--二级菜单的开始------------------------------------------------------>
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span><img alt="image" class="img-circle" src="img/sys.png" style="width: 120px;height: 120px"/></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold"><span id="loginName"></strong></span>
                                 <span class="text-muted text-xs block"><span id="deptName"></span><b class="caret"></b></span>
                                 </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+                                </li>
+                                <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                </li>
+                                <li><a class="J_menuItem" href="contacts.html">联系我们</a>
+                                </li>
+                                <li><a class="J_menuItem" href="mailbox.html">信箱</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="UserServlet?method=loginOut">安全退出</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--左侧菜单写死-->
+                    <!--
+                    <li class="active">
+                        <a class="J_menuItem" href="index_v1.html" data-index="1">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">后台首页一</span>
                         </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
-                            </li>
-                            <li><a class="J_menuItem" href="profile.html">个人资料</a>
-                            </li>
-                            <li><a class="J_menuItem" href="contacts.html">联系我们</a>
-                            </li>
-                            <li><a class="J_menuItem" href="mailbox.html">信箱</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="UserServlet?method=loginOut">安全退出</a>
-                            </li>
+                    </li>
+                    <li class="active">
+                        <a class="J_menuItem" href="index_v1.html" data-index="3">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">后台首页二</span>
+                        </a>
+                    </li>
+                    -->
+                    <!--左侧菜单写活-->
+                    <my-menu :menu="item" v-for="item in menus"></my-menu>
+                </ul>
+                <!--二级菜单的结束------------------------------------------------------>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1" >
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <!--一级菜单开始---------------------------------------------------->
+                        <ul class="nav navbar-top-links navbar-left " id="topMenu">
                         </ul>
+                        <!--一级菜单开始---------------------------------------------------->
                     </div>
-                </li>
-                <li class="active">
-                    <a class="J_menuItem" href="index_v1.html" data-index="8">
-                        <i class="fa fa-home"></i>
-                        <span class="nav-label">后台首页</span>
-                    </a>
-                </li>
-            </ul>
-            <!--二级菜单的结束------------------------------------------------------>
-        </div>
-    </nav>
-    <!--左侧导航结束-->
-    <!--右侧部分开始-->
-    <div id="page-wrapper" class="gray-bg dashbard-1">
-        <div class="row border-bottom">
-            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <!--一级菜单开始---------------------------------------------------->
-                    <ul class="nav navbar-top-links navbar-left " id="topMenu">
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="hidden-xs"><a   @click="fullScreen">
+                            <i class="fa fa-arrows" aria-hidden="true"></i>
+                            <sapn>全屏</sapn>
+                        </a></li>
+                        <li class="hidden-xs"><a  class="clearCache" @click="clearCache">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            <sapn>清除缓存</sapn>
+                        </a></li>
+                        <li class="hidden-xs"><a    @click="updatePassword">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                            <sapn>修改密码</sapn>
+                        </a></li>
+                        <li class="hidden-xs"><a    @click="findDetail">
+                            <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+                            <sapn>查看详情</sapn>
+                        </a></li>
+                        <li class="hidden-xs"><a  class="lockcms" @click="lockScreen">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                            <sapn>锁屏</sapn>
+                        </a></li>
+                        <li class="dropdown hidden-xs">
+                            <a class="right-sidebar-toggle" aria-expanded="false">
+                                <i class="fa fa-tasks"></i> 主题
+                            </a>
+                        </li>
+                        <li class="dropdown hidden-xs"><a  @click="signOut">
+                            <i class="fa fa-sign-out"></i> 退出
+                        </a>
+                        </li>
                     </ul>
-                    <!--一级菜单开始---------------------------------------------------->
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
+                </button>
+                <nav class="page-tabs J_menuTabs">
+                    <div class="page-tabs-content">
+                        <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
+                    </div>
+                </nav>
+                <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
+                </button>
+                <div class="btn-group roll-nav roll-right">
+                    <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+
+                    </button>
+                    <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                        <li class="J_tabRefresh"><a>刷新当前界面</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
+                        </li>
+                        <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="nav navbar-top-links navbar-right">
-                    <li class="hidden-xs"><a href="javascript:;" class="clearCache">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        <sapn>清除缓存</sapn>
-                    </a></li>
-                    <li class="hidden-xs"><a href="javascript:;" class="lockcms">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                        <sapn>锁屏</sapn>
-                    </a></li>
-                    <li class="dropdown hidden-xs">
-                        <a class="right-sidebar-toggle" aria-expanded="false">
-                            <i class="fa fa-tasks"></i> 主题
+                <a  class="roll-nav roll-right J_tabExit" @click="refresh"><i class="fa fa fa-sign-out"></i> 刷新</a>
+            </div>
+            <div class="row J_mainContent" id="content-main">
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0"
+                        data-id="index_v1.html" seamless></iframe>
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    &copy; 2018-2020 <a href="http://www.wanho.net" target="_blank">xiaopang_96</a>
+                </div>
+            </div>
+        </div>
+        <!--右侧部分结束-->
+        <!--右侧边栏开始-->
+        <div id="right-sidebar">
+            <div class="sidebar-container">
+                <ul class="nav nav-tabs navs-3">
+                    <li class="active">
+                        <a data-toggle="tab" href="#tab-1">
+                            <i class="fa fa-gear"></i> 主题
                         </a>
                     </li>
                 </ul>
-            </nav>
-        </div>
-        <div class="row content-tabs">
-            <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
-            </button>
-            <nav class="page-tabs J_menuTabs">
-                <div class="page-tabs-content">
-                    <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
-                </div>
-            </nav>
-            <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
-            </button>
-            <div class="btn-group roll-nav roll-right">
-                <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
 
-                </button>
-                <ul role="menu" class="dropdown-menu dropdown-menu-right">
-                    <li class="J_tabRefresh"><a>刷新当前界面</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
-                    </li>
-                    <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
-                    </li>
-                </ul>
-            </div>
-            <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
-        </div>
-        <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0"
-                    data-id="index_v1.html" seamless></iframe>
-        </div>
-        <div class="footer">
-            <div class="pull-right">&copy; 2018-2020 <a href="http://www.wanho.net" target="_blank">WANHO</a>
-            </div>
-        </div>
-    </div>
-    <!--右侧部分结束-->
-    <!--右侧边栏开始-->
-    <div id="right-sidebar">
-        <div class="sidebar-container">
-            <ul class="nav nav-tabs navs-3">
-                <li class="active">
-                    <a data-toggle="tab" href="#tab-1">
-                        <i class="fa fa-gear"></i> 主题
-                    </a>
-                </li>
-            </ul>
-
-            <div class="tab-content">
-                <div id="tab-1" class="tab-pane active">
-                    <div class="sidebar-title">
-                        <h3><i class="fa fa-comments-o"></i> 主题设置</h3>
-                        <small><i class="fa fa-tim"></i> 你可以从这里选择和预览主题的布局和样式，这些设置会被保存在本地，下次打开的时候会直接应用这些设置。</small>
-                    </div>
-                    <div class="skin-setttings">
-                        <div class="title">主题设置</div>
-                        <div class="setings-item">
-                            <span>收起左侧菜单</span>
-                            <div class="switch">
-                                <div class="onoffswitch">
-                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox"
-                                           id="collapsemenu">
-                                    <label class="onoffswitch-label" for="collapsemenu">
-                                        <span class="onoffswitch-inner"></span>
-                                        <span class="onoffswitch-switch"></span>
-                                    </label>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="sidebar-title">
+                            <h3><i class="fa fa-comments-o"></i> 主题设置</h3>
+                            <small><i class="fa fa-tim"></i> 你可以从这里选择和预览主题的布局和样式，这些设置会被保存在本地，下次打开的时候会直接应用这些设置。</small>
+                        </div>
+                        <div class="skin-setttings">
+                            <div class="title">主题设置</div>
+                            <div class="setings-item">
+                                <span>收起左侧菜单</span>
+                                <div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox"
+                                               id="collapsemenu">
+                                        <label class="onoffswitch-label" for="collapsemenu">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="setings-item">
-                            <span>固定顶部</span>
-
-                            <div class="switch">
-                                <div class="onoffswitch">
-                                    <input type="checkbox" name="fixednavbar" class="onoffswitch-checkbox"
-                                           id="fixednavbar">
-                                    <label class="onoffswitch-label" for="fixednavbar">
-                                        <span class="onoffswitch-inner"></span>
-                                        <span class="onoffswitch-switch"></span>
-                                    </label>
+                            <div class="setings-item">
+                                <span>固定顶部</span>
+                                <div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="fixednavbar" class="onoffswitch-checkbox"
+                                               id="fixednavbar">
+                                        <label class="onoffswitch-label" for="fixednavbar">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="setings-item">
-                                <span>
-                        固定宽度
-                    </span>
-
-                            <div class="switch">
-                                <div class="onoffswitch">
-                                    <input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox"
-                                           id="boxedlayout">
-                                    <label class="onoffswitch-label" for="boxedlayout">
-                                        <span class="onoffswitch-inner"></span>
-                                        <span class="onoffswitch-switch"></span>
-                                    </label>
+                            <div class="setings-item">
+                                <span>固定宽度</span>
+                                <div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox"
+                                               id="boxedlayout">
+                                        <label class="onoffswitch-label" for="boxedlayout">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="title">皮肤选择</div>
-                        <div class="setings-item default-skin nb">
+                            <div class="title">皮肤选择</div>
+                            <div class="setings-item default-skin nb">
                                 <span class="skin-name ">
                          <a href="#" class="s-skin-0">
                              默认皮肤
                          </a>
                     </span>
-                        </div>
-                        <div class="setings-item blue-skin nb">
+                            </div>
+                            <div class="setings-item blue-skin nb">
                                 <span class="skin-name ">
                         <a href="#" class="s-skin-1">
                             蓝色主题
                         </a>
                     </span>
-                        </div>
-                        <div class="setings-item yellow-skin nb">
+                            </div>
+                            <div class="setings-item yellow-skin nb">
                                 <span class="skin-name ">
                         <a href="#" class="s-skin-3">
                             黄色/紫色主题
                         </a>
                     </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!--右侧边栏结束-->
+
+        <!--修改密码form-->
+        <div class="col-md-12" id="passwordLayer" style="padding-top: 15px">
+            <form action="" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">账号：</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="" class="form-control" readonly v-model="account">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">原密码：</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" name="password" placeholder="请输入原密码" v-model="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">新码框：</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" name="newPassword" placeholder="请输入新密码" v-model="newPassword">
+                    </div>
+                </div>
+            </form>
+        </div>
+
     </div>
-    <!--右侧边栏结束-->
-</div>
+
+
+
+
+
+
 
 <!-- 全局js -->
 <script src="js/plugins/jquery/jquery.min.js?v=2.1.4"></script>
@@ -230,8 +289,12 @@
 <script type="text/javascript" src="js/contabs.js"></script>
 <!-- 第三方插件 -->
 <script src="js/plugins/pace/pace.min.js"></script>
+<script src="js/plugins/vue/vue.min.js"></script>
 <!--自定义JS-->
 <script src="js/main.js"></script>
+<script src="js/commonsD.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/sys/index.js"></script>
 
 </body>
 </html>

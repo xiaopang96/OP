@@ -49,7 +49,7 @@
     </div>
    <jsp:include page="/admin/footer.jsp" />
     <script type="text/javascript">
-		var prefix = ctx + "admin/post"
+		var prefix = ctx + "admin/post";
 		$("#form-post").validate({
 			rules:{},
 			messages : {},

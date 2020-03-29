@@ -157,8 +157,8 @@
 			$('#statu').bootstrapSwitch('state', true);
 	
 		
-	
-		var prefix = ctx + "admin/user"
+	    var ctx = "http://localhost:8086";
+		var prefix = ctx + "admin/user";
 		$("#form-user").validate({
 			rules : {},
 			messages : {},

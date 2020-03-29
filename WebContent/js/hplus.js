@@ -13,7 +13,7 @@ $(document).ready(function () {
         $('#right-sidebar').toggleClass('sidebar-open');
     });
 
-    // 右侧边栏使用slimscroll
+    // 右侧边栏使用slimScroll
     $('.sidebar-container').slimScroll({
         height: '100%',
         railOpacity: 0.4,

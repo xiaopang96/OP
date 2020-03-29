@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H+ 后台主题UI框架 - 主页示例</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <title>xiaopang_96 - 主页示例</title>
+    <link rel="shortcut icon" href="favicon.png">
     <!--bootstrap样式-->
     <link href="css/plugins/bootstrap/bootstrap.min.css?v=3.3.6" rel="stylesheet">
 
@@ -30,7 +30,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <div class="alert alert-success" id="nowTime">亲爱的xx，晚上好！ 欢迎使用xx管理系统。当前时间为： 2018年11月08日  20:26:05　星期四</div>
+            <div class="alert alert-success" id="nowTime"></div>
         </div>
     </div>
     <!--菜单首页：显示当前用户和当前时间结束 ========================================-->
@@ -185,17 +185,16 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>联系信息</h5>
-
                 </div>
                 <div class="ibox-content">
                     <p>
-                        <i class="fa fa-send-o"></i> 博客：<a href="http://www.zi-han.net" target="_blank">http://www.wanho.net</a>
+                        <i class="fa fa-send-o"></i> GIT：<a href="http://www.zi-han.net" target="_blank">https://github.com/xiaopang96/OP.git</a>
                     </p>
                     <p>
-                        <i class="fa fa-qq"></i> QQ：<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=516477188&amp;site=qq&amp;menu=yes" target="_blank">89115008</a>
+                        <i class="fa fa-qq"></i> QQ：<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=516477188&amp;site=qq&amp;menu=yes" target="_blank">xiaopang_96</a>
                     </p>
                     <p>
-                        <i class="fa fa-weixin"></i> xx信：<a href="javascript:;">89115008@</a>
+                        <i class="fa fa-weixin"></i> weChat：<a href="javascript:;">smilebeichang</a>
                     </p>
                     <p>
                         <i class="fa fa-credit-card"></i> xx宝：<a href="javascript:;" class="支付宝信息">89115008@qq.com</a>
@@ -224,7 +223,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -249,6 +247,26 @@
     <script src="js/welcome.js"></script>
     <!--自定义js-->
     <script src="js/index_v1.js"></script>
+
+    <script>
+        $(function () {
+            var showTime = function () {
+                var now = new Date();
+                var year = now.getFullYear();
+                var month = now.getMonth();
+                var date = now.getDate();
+                var day = now.getDay();
+                var hour = now.getHours();
+                var minute = now.getMinutes();
+                var second = now.getSeconds();
+                var weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+                var week = weeks[day];
+                $("#nowTime").text(`hello **！ 欢迎使用xiaopang_96管理系统。当前时间为： ${year}年${month}月${date}日 ${hour}:${minute}:${second} ${week}`);
+            };
+            showTime();
+            setInterval(showTime,1000);
+        });
+    </script>
 </body>
 
 </html>
