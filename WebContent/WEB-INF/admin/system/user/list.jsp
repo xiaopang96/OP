@@ -23,6 +23,9 @@
 								</li>
 								<li>帐号状态： <select name="status" id="status">
 										<option value="">所有</option>
+                                        <c:forEach items="${datas}"  var="item">
+                                            <option value="${item.dictValue }">${item.dictLabel }</option>
+                                        </c:forEach>
 								</select>
 								</li>
 								<li>
@@ -138,8 +141,8 @@
 				valign : 'middle',
 				sortable : true
 			}, {
-				field : 'deptName',
-				title : '部门名称 ',
+				field : 'deptId',
+				title : '部门编号 ',
 				align : 'center',
 				valign : 'middle',
 				sortable : true
@@ -209,7 +212,7 @@
 				$("#deptIds").val(ids.join(","));
 				$.table.search();
 			}
-		}
+		};
 	$.tree.init(treeOptions); 
 
 	//========================折叠菜单的交换显示===================================

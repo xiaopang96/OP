@@ -31,7 +31,7 @@ $(function () {
     $(".lockcms").on("click", function() {
         window.localStorage.setItem("lockcms", true);
         lockPage();
-    })
+    });
 
     function lockPage() {
         layer
@@ -55,7 +55,7 @@ $(function () {
                 success : function() {
 
                 }
-            })
+            });
         $(".lock").focus();
     }
 
@@ -63,6 +63,7 @@ $(function () {
     if (window.localStorage.getItem("lockcms") == "true") {
         lockPage();
     }
+
 
     //解锁
     $("body").on("click", "#unlock", function() {
@@ -86,5 +87,40 @@ $(function () {
             $("#unlock").click();
         }
     });
+
+
+    //修改密码
+    $(".updatePassword").on("click", function() {
+        layer
+            .open({
+                title : false,
+                scrollbar : false,
+                type : 1,
+                area : [ '400px', '300px' ],
+                content : '<form  class="form-horizontal"  >'
+                    + '<div  id="lock-box" class="text-center">'
+                    + '<div ><img src="img/a1.jpg" class="userAvatar img-thumbnail" height="100px" width="100px"/></div>'
+                    + '<div class="alert alert-success col-sm-10 col-sm-offset-1" >请输入解锁密码</div>'
+                    + '<div class="form-group">'
+                    + '<div class="col-sm-6 col-sm-offset-1">'
+                    + '<input type="password" class="form-control lock"   autocomplete="off" placeholder="请输入解锁密码" name="lockPwd" id="lockPwd" />'
+                    + '</div>'
+                    + '<button class="btn btn-primary col-sm-4" id="unlock">解锁</button>'
+                    + '</div>' + '</div>' + '</form>',
+                closeBtn : 0,
+                shade : 0.9,
+                success : function() {
+
+                }
+            });
+    });
+
+    //刷新 reload
+    /*$(".reload").on("click", function() {
+        layer
+            .open({
+                content: "刷新成功"
+            })
+    });*/
 
 });

@@ -107,7 +107,7 @@
         "perms": "",
         "updateDateTimeStr": "",
         "updateTimeStr": "",
-        "url": "/admin/user/list.html",
+        "url": "/UserServlet?method=to_list",
         "visible": -1
       },
       {
@@ -155,7 +155,7 @@
         "perms": "",
         "updateDateTimeStr": "",
         "updateTimeStr": "",
-        "url": "/admin/post/list.html",
+        "url": "/PostServlet?method=to_list",
         "visible": -1
       },
       {
