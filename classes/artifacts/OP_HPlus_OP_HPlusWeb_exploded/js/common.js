@@ -224,6 +224,7 @@
                 var treeTable = $('#bootstrap-table').bootstrapTreeTable({
                     id:options.id,
                     parentId:options.parentId,
+                    //url:"",
                 	url : options.urlName + "?method=treeTableList", // 请求后台的URL（*）
                     columns: options.columns,
                     type: 'POST',                   // 请求方式（*）
@@ -344,6 +345,7 @@
 		},
 		operate : {
 			submit : function(url, data, ope, method, dataType) {
+			    console.log(url);
 				$.modal.loading("正在处理中，请稍后...");
 				$.ajax({
 					url : url,
@@ -375,9 +377,9 @@
 			remove : function(id) {
 				var url="";
 				if(jQuery.isEmptyObject($.table._options)){
-					url = $.treeTable._options.urlName + "?method=remove";
+					url = "http://localhost:8086/"+$.treeTable._options.urlName + "?method=remove";
 				}else{
-					url = $.table._options.urlName + "?method=remove";
+					url = "http://localhost:8086/"+$.table._options.urlName + "?method=remove";
 				}
 				 
 				if ($.common.isEmpty(id)) {
@@ -406,7 +408,6 @@
 				}
 			},
 			reset:function(id){
-				
 				$.operate.submit("UserServlet?method=reset", "id="+id, "remove");
 			},
 			add : function(pid) {

@@ -224,6 +224,7 @@
                 var treeTable = $('#bootstrap-table').bootstrapTreeTable({
                     id:options.id,
                     parentId:options.parentId,
+                    //url:"",
                 	url : options.urlName + "?method=treeTableList", // 请求后台的URL（*）
                     columns: options.columns,
                     type: 'POST',                   // 请求方式（*）
@@ -407,7 +408,6 @@
 				}
 			},
 			reset:function(id){
-				
 				$.operate.submit("UserServlet?method=reset", "id="+id, "remove");
 			},
 			add : function(pid) {
