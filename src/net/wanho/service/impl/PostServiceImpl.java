@@ -97,4 +97,9 @@ public class PostServiceImpl implements PostServiceI {
 		return this.postDao.selectPostByUserId(userId);
 	}
 
+    @Override
+    public List<Post> selectPostListUserId(int userId) {
+        return this.postDao.selectPostListUserId(userId);
+    }
+
 }

@@ -53,8 +53,7 @@ public class Menu extends BaseEntity
 		private List<Menu> children = new ArrayList<>() ;
 		
 		
-		public Menu() {
-		}
+		public Menu() {}
 
 
 		public Menu(String searchValue, String createBy, Date createTime, String updateBy, Date updateTime,

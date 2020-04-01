@@ -15,7 +15,7 @@
 					<input id="parentMenuName" name=parentMenuName value="${menu.parentMenuName}"  readonly onclick="selectMenuTree()" class="form-control" type="text">
                 </div>
             </div>
-              <div class="form-group">	
+            <div class="form-group">
                 <label class="col-sm-3 control-label">菜单类型:</label>
                 <div class="col-sm-8" id="menuTypeDiv">
                 	<c:choose>
@@ -42,7 +42,6 @@
                 			<input  name="menuType" value="F"  class="form-control" type="radio" >按钮
                 		</c:otherwise>
                 	</c:choose>
-                    
                 </div>
             </div>
             <div class="form-group">	
@@ -51,12 +50,12 @@
                     <input id="menuName" name="menuName" value="${menu.menuName}"  class="form-control" type="text">
                 </div>
             </div>
-           <div class="form-group">	
+            <div class="form-group">
                 <label class="col-sm-3 control-label url">请求地址：</label>
                 <div class="col-sm-8">
                     <input id="url" name="url" value="${menu.url}"  class="form-control" type="text">
                 </div>
-            </div>
+           </div>
             <div class="form-group">	
                 <label class="col-sm-3 control-label perms">权限标识：</label>
                 <div class="col-sm-8">
@@ -69,7 +68,7 @@
                     <input id="orderNum" name="orderNum" value="${menu.orderNum}"  class="form-control" type="text">
                 </div>
             </div>
-             <div class="form-group">	
+            <div class="form-group">
                 <label class="col-sm-3 control-label icon">菜单图标：</label>
                 <div class="col-sm-8">
                     <input id="icon" name="icon" value="${menu.icon}" placeholder="选择图标"  class="form-control" type="text">
@@ -82,8 +81,7 @@
             <div class="form-group">	
                 <label class="col-sm-3 control-label">菜单状态：</label>
                 <div class="col-sm-8">
-                	
-               	<c:forEach items="${datas}" var="item">
+               	    <c:forEach items="${datas}" var="item">
 					<c:choose>
 						<c:when test="${menu.visible==item.dictValue}">
 							   <input id="visible" name="visible" value="${item.dictValue}" checked   type="radio">${item.dictLabel}
@@ -93,11 +91,11 @@
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-                	
                 </div>
             </div>
 			<div class="form-group">
 				<div class="form-control-static col-sm-offset-9">
+                    <%--是否能提交成功，是否能正常关闭--%>
 					<button type="submit" class="btn btn-primary">提交</button>
 					<button onclick="$.modal.close()" class="btn btn-danger" type="button">关闭</button>
 				</div>
@@ -147,8 +145,9 @@
     		radioClass : 'iradio_square-green',
     		increaseArea : '20%' // optional
     	});
-    
-    	var prefix = ctx + "admin/menu"
+
+        var ctx = "http://127.0.0.1:8086";
+    	var prefix = ctx + "admin/menu";
     	$("#form-menu").validate({
     		rules : {},
     		messages : {},

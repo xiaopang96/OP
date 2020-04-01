@@ -14,7 +14,7 @@ public class PwdUtils {
 		}
 		return res;
 	}
-	
+	//dc239aa8c351fed684f1d9c523ea0f06
 	public static void main(String[] args) {
 		System.out.println(PwdUtils.getPwd("admin", "admin", "111111"));
 	}

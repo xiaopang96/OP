@@ -168,7 +168,7 @@
 		});
 		
 		function selectDeptTree(){
-			var url = ctx + "DeptServlet?method=to_tree"
+			var url = ctx + "/DeptServlet?method=to_tree";
 			$.modal.open("选择部门",url,'380','380');
 		}
 	</script>

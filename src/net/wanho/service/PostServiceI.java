@@ -76,10 +76,10 @@ public interface PostServiceI
      * @param ids 需要删除的数据ID
      * @return 结果
      */
-	public int[] deletePostByIds(String ids);
+	 int[] deletePostByIds(String ids);
 
-	public List<Post> selectPostByUserId(Integer userId);
+	 List<Post> selectPostByUserId(Integer userId);
 
-	
-	
+
+     List<Post> selectPostListUserId(int parseInt);
 }

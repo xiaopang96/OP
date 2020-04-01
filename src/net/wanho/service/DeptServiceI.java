@@ -3,11 +3,12 @@ package net.wanho.service;
 import net.wanho.po.Dept;
 import net.wanho.po.User;
 import net.wanho.vo.Page;
+import net.wanho.vo.Tree;
 
 import java.util.List;
 
 /**
- * 员工 服务层接口
+ * 部门 服务层接口
  * 
  *  @description:
  *  @author: Mr.songbeichang
@@ -19,7 +20,6 @@ public interface DeptServiceI
 	
 	/**
      * 分页查询部门列表
-     * 
      * @param Dept 部门信息
      * @return 部门相关Page
      */
@@ -33,4 +33,6 @@ public interface DeptServiceI
     int[] deleteDeptByIds(String ids);
 
     List<Dept> selectDeptList(Dept dept);
+
+    List<Tree> selectDeptListTree(Dept dept, String deptId);
 }

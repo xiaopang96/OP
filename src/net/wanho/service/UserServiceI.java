@@ -1,5 +1,6 @@
 package net.wanho.service;
 
+import net.wanho.po.DictData;
 import net.wanho.po.Post;
 import net.wanho.po.User;
 import net.wanho.vo.Page;
@@ -31,4 +32,5 @@ public interface UserServiceI
     User selectUserById(int parseInt);
 
     int[] deleteUserByIds(String ids);
+
 }

@@ -59,5 +59,6 @@ public interface PostDaoI
      * @return 结果
      */
 	 public int[] batchDeletePost(Integer[] postIds);
-	
+
+    List<Post> selectPostListUserId(int userId);
 }

@@ -24,8 +24,8 @@ margin-top:19px;
 							<button class="btn btn-outline btn-success btn-rounded" onclick="$.operate.add()">
 								<i class="fa fa-plus"></i> 新增
 							</button>
-							</div>
-						</div>
+                        </div>
+					</div>
 				</div>
 				<!-- bootstrap表格显示 -->
 				<table class="bootstrap-table select-info" id="bootstrap-table"></table>
@@ -38,7 +38,7 @@ margin-top:19px;
     
    <script type="text/javascript">
        
-        var prefix = ctx + "admin/menu"
+        var prefix = ctx + "admin/menu";
 
         $(function() {
             var options = {

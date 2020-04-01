@@ -10,6 +10,7 @@ import net.wanho.service.UserServiceI;
 import net.wanho.util.StringUtils;
 import net.wanho.vo.AjaxResult;
 import net.wanho.vo.Page;
+import net.wanho.vo.Tree;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -151,6 +153,20 @@ public class DeptServlet extends BaseServlet{
 
     }
 
+    protected String to_tree(HttpServletRequest request,HttpServletResponse resp) throws IOException {
+        return "forward:" + prefix + "tree.jsp";
+    }
+
+
+    protected void findTree(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
+        Dept dept = new Dept();
+        List<Dept> depts = deptService.selectDeptList(dept);
+        out.println(JSON.toJSON(depts));
+        out.flush();
+        out.close();
+
+    }
 
 
 

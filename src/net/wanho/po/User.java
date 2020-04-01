@@ -59,9 +59,7 @@ public class User extends BaseEntity
 					
 		/** 最后登陆时间 */
 		private Date loginDate;
-								
-		/** 备注 */
-		private String remark;
+
 
 		public String getLoginDateStr(){
 	        return loginDate != null ? DateUtils.parseDateToStr(DateUtils.YYYY_MM_DD, loginDate) : "";
@@ -176,12 +174,7 @@ public class User extends BaseEntity
 		public void setLoginDate(Date loginDate) {
 			this.loginDate = loginDate;
 		}
-		public String getRemark() {
-			return remark;
-		}
-		public void setRemark(String remark) {
-			this.remark = remark;
-		}
+
 		public String getDeptIds() {
 			return deptIds;
 		}

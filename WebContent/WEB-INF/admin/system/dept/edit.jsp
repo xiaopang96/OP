@@ -62,6 +62,7 @@
     </div>
    <jsp:include page="/admin/footer.jsp" />
     <script type="text/javascript">
+        var ctx = "http://127.0.0.1:8086";
 		var prefix = ctx + "admin/dept"
 		$("#form-dept").validate({
 			rules:{},

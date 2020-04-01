@@ -19,34 +19,34 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDaoI {
 
 	/**
 	 * 分页查询员工列表
-	 * 
-	 * @param user
-	 *            员工信息
+	 * @param user 员工信息
 	 * @return 员工集合
 	 */
     @Override
 	public void selectUserByPage(User user, Page page) {
 		StringBuilder sql = new StringBuilder(
 				//一定要取别名，以便查数据
-                "SELECT sys_user.user_id userId,sys_user.dept_id deptId,sys_user.login_name loginName,sys_user.user_name userName,sys_user.user_type userType,sys_user.email email,sys_user.phonenumber phonenumber,sys_user.sex sex,sys_user.avatar avatar,sys_user.`password` password,sys_user.salt salt,sys_user.`status` status,sys_user.del_flag delFlag,sys_user.login_ip loginIp,sys_user.login_date loginDate,sys_user.create_by,sys_user.create_time,sys_user.update_by,sys_user.update_time,sys_user.remark remark FROM sys_user WHERE 1=1 " );
+                "SELECT sys_user.user_id userId,sys_user.dept_id deptId,sys_user.login_name loginName,sys_user.user_name userName,sys_user.user_type userType,sys_user.email email,sys_user.phonenumber phonenumber,sys_user.sex sex,sys_user.avatar avatar,sys_user.`password` password,sys_user.salt salt,sys_user.`status` status,sys_user.del_flag delFlag,sys_user.login_ip loginIp,sys_user.login_date loginDate,sys_user.create_by,sys_user.create_time createTime,sys_user.update_by,sys_user.update_time,sys_user.remark remark,dept.dept_name deptName FROM sys_user   left join sys_dept dept on sys_user.dept_id=dept.dept_id where 1=1 " );
 		List<Object> params = new ArrayList<>();
 		//查询语句都是模糊查询 AND post_id like concat('%',?, '%')"
 		if (StringUtils.isNotEmpty(user.getPhonenumber())) {
 			//sql是查询语句，params是什么？
-			sql.append("AND phonenumber like concat('%',?, '%')");
+			sql.append("AND sys_user.phonenumber like concat('%',?, '%')");
 			params.add(user.getPhonenumber());
 		}
 		if (StringUtils.isNotEmpty(user.getStatus())) {
-			sql.append("AND status like concat('%',?, '%')");
+			sql.append("AND sys_user.status like concat('%',?, '%')");
 			params.add(user.getStatus());
 		}
 		if (StringUtils.isNotEmpty(user.getLoginName())) {
-			sql.append("AND login_name like concat('%',?, '%')");
+			sql.append("AND sys_user.login_name like concat('%',?, '%')");
 			params.add(user.getLoginName());
 		}
+        if (StringUtils.isNotEmpty(user.getDeptIds())) {
+            sql.append(" AND sys_user.dept_id IN (SELECT t.dept_id FROM sys_dept t WHERE t.dept_id in ("+user.getDeptIds()+"))");
+        }
 
 		//order by page.getOrderColumn() + page.getOrderStyle() +limit 拼接对应页数据的where条件
-		//where+=" limit "+page.getIndex()+","+page.getPageSize();
 		sql.append(" order by  ").append(page.getOrderColumn()).append(" ").append(page.getOrderStyle())
 				.append(" limit ?,?");
 		page.setTotalItemNumber(selectRecordCount(user));
@@ -97,17 +97,29 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDaoI {
             sql.append("login_name=?,");
             params.add(user.getLoginName());
         }
+        if (StringUtils.isNotEmpty(user.getUserName())) {
+            sql.append("user_name=?,");
+            params.add(user.getUserName());
+        }
         if (user.getStatus().equals(0) || user.getStatus().equals(1)) {
             sql.append("status=?,");
             params.add(user.getStatus());
         }
-        if (StringUtils.isNotEmpty(user.getUpdateBy())) {
-            sql.append("update_by=?,");
-            params.add(user.getUpdateBy());
+        if (StringUtils.isNotEmpty(user.getEmail())) {
+            sql.append("email=?,");
+            params.add(user.getEmail());
         }
         if (StringUtils.isNotEmpty(user.getUpdateTimeStr())) {
             sql.append("update_time=?,");
             params.add(user.getUpdateTimeStr());
+        }
+        if (StringUtils.isNotEmpty(user.getPassword())) {
+            sql.append("password=?,");
+            params.add(user.getPassword());
+        }
+        if (StringUtils.isNotEmpty(user.getDeptId())) {
+            sql.append("dept_id=?,");
+            params.add(user.getDeptId());
         }
         if (StringUtils.isNotEmpty(user.getRemark())) {
             sql.append("remark=?");

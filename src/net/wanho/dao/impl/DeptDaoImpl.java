@@ -6,12 +6,13 @@ import net.wanho.po.Dept;
 import net.wanho.po.User;
 import net.wanho.util.StringUtils;
 import net.wanho.vo.Page;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 员工 数据层
+ * 部门 数据层
  * 
  */
 public class DeptDaoImpl extends BaseDaoImpl<Dept> implements DeptDaoI {
@@ -19,16 +20,13 @@ public class DeptDaoImpl extends BaseDaoImpl<Dept> implements DeptDaoI {
 
 
 	/**
-	 * 分页查询员工列表
-	 * 
-	 * @param Dept
-	 *            员工信息
-	 * @return 员工集合
+	 * 分页查询部门列表
+	 * @param Dept 部门信息
+	 * @return 部门集合
 	 */
     @Override
 	public void selectDeptByPage(Dept dept, Page page) {
 		StringBuilder sql = new StringBuilder(
-				//一定要取别名，以便查数据
                 "SELECT d.dept_id deptId,d.parent_id parentId,d.dept_name deptName,d.order_num orderNum,d.leader,d.phone,d.email,d.`status`,d.create_by,d.create_time,d.update_by,d.update_time,d.remark FROM sys_dept AS d WHERE 1=1 " );
 		List<Object> params = new ArrayList<>();
 		if (StringUtils.isNotEmpty(dept.getDeptName())) {
@@ -48,10 +46,10 @@ public class DeptDaoImpl extends BaseDaoImpl<Dept> implements DeptDaoI {
 
 
     /**
-	 * private 员工的总行数
+	 * private 部门的总行数
 	 *
 	 */
-	private Long selectRecordCount(Dept dept) {
+	private Long selectRecordCount(@NotNull Dept dept) {
 		StringBuilder sql = new StringBuilder(" select count(0) from sys_dept where 1=1 ");
 		List<Object> params = new ArrayList<>();
 		if (StringUtils.isNotEmpty(dept.getDeptName())) {

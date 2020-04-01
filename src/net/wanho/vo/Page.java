@@ -4,34 +4,37 @@ import java.util.List;
 
 @SuppressWarnings("rawtypes")
 public class Page {
-	//当前页
-	private int pageNo=1; //页面获取 
-	//页面大小 
-	private int pageSize=10; //页面获取
-	//页面数据
-	private List data; //数据库获取
-	//数据总条数
-	private long totalItemNumber; //数据库获取
-	//排序列
+    /**
+     *  当前页 页面获取
+     */
+	private int pageNo=1;
+
+    /**
+     * 页面大小 页面获取
+     */
+	private int pageSize=10;
+
+	/**
+	 * 页面数据 数据库获取
+	 */
+	private List data;
+
+    /**
+     * 数据总条数 数据库获取
+     */
+	private long totalItemNumber;
+
+    /**
+     *  排序列
+     **/
 	private String orderColumn ="id";
-	//排序方式
+
+    /**
+     * 排序方式
+     */
 	private String orderStyle ="asc";
 	
-	public String getOrderColumn() {
-		return orderColumn;
-	}
 
-	public void setOrderColumn(String orderColumn) {
-		this.orderColumn = orderColumn;
-	}
-
-	public String getOrderStyle() {
-		return orderStyle;
-	}
-
-	public void setOrderStyle(String orderStyle) {
-		this.orderStyle = orderStyle;
-	}
 
 	/**
 	 * 计算出总页数
@@ -57,7 +60,9 @@ public class Page {
 		return true;
 	}
 	
-	//得到下一页:页号
+	/*
+	 * 得到下一页:页号
+	 */
 	public int getNextPage() {
 		if(isHasNextPage())
 			return pageNo+1;
@@ -82,6 +87,7 @@ public class Page {
 			pageNo=getTotalPageNumber();
 		return pageNo;
 	}
+
 	public void setPageNo(int pageNo) {
 		this.pageNo = pageNo;
 	}
@@ -106,6 +112,18 @@ public class Page {
 	public void setTotalItemNumber(long totalItemNumber) {
 		this.totalItemNumber = totalItemNumber;
 	}
-	
-	
+
+    public String getOrderColumn() {
+        return orderColumn;
+    }
+
+    public void setOrderColumn(String orderColumn) {
+        this.orderColumn = orderColumn;
+    }
+
+    public String getOrderStyle() { return orderStyle; }
+
+    public void setOrderStyle(String orderStyle) {
+        this.orderStyle = orderStyle;
+    }
 }

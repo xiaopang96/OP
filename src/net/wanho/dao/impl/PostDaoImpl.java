@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 
-	
+    @Override
 	public List<Post> selectPostByUserId(Integer userId) {
 		String sql = "SELECT p.post_id postId , p.post_code postCode , p.post_name postName , p.post_sort postSort , p.status STATUS , p.create_by createBy , p.create_time createTime , p.update_by updateBy , p.update_time updateTime , p.remark remark FROM sys_user u INNER JOIN sys_user_post up ON u.user_id=up.user_id INNER JOIN  sys_post p ON up.post_id=p.post_id WHERE u.user_id=?";
 		return this.execQuery(sql, userId);
@@ -21,10 +21,10 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 	/**
 	 * 查询岗位信息
 	 * 
-	 * @param postId
-	 *            岗位ID
+	 * @param postId    岗位ID
 	 * @return 岗位信息
 	 */
+    @Override
 	public Post selectPostById(Integer postId) {
 		StringBuilder sql = new StringBuilder(
 				" select post_id postId , post_code postCode , post_name postName , post_sort postSort , status status , create_by createBy , create_time createTime , update_by updateBy , update_time updateTime , remark remark  from sys_post ");
@@ -39,6 +39,7 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 	 *            岗位信息
 	 * @return 岗位集合
 	 */
+    @Override
 	public List<Post> selectPostList(Post post) {
 		StringBuilder sql = new StringBuilder(
 				" select  post_id postId , post_code postCode , post_name postName , post_sort postSort , status status , create_by createBy , create_time createTime , update_by updateBy , update_time updateTime , remark remark  from sys_post where 1=1 ");
@@ -77,7 +78,7 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 	 *            岗位信息
 	 * @return 岗位集合
 	 */
-
+    @Override
 	public void selectPostByPage(Post post, Page page) {
 		StringBuilder sql = new StringBuilder(
 				//一定要取别名，以便查数据
@@ -85,7 +86,6 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 		List<Object> params = new ArrayList<>();
 		//查询语句都是模糊查询 AND post_id like concat('%',?, '%')"
 		if (StringUtils.isNotEmpty(post.getPostId())) {
-			//sql是查询语句，params是什么？
 			sql.append("AND post_id like concat('%',?, '%')");
 			params.add(post.getPostId());
 		}
@@ -109,21 +109,18 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 			sql.append("AND remark like concat('%',?, '%')");
 			params.add(post.getRemark());
 		}
-		//order by page.getOrderColumn() + page.getOrderStyle() +limit 拼接对应页数据的where条件
-		//where+=" limit "+page.getIndex()+","+page.getPageSize();
 		sql.append(" order by  ").append(page.getOrderColumn()).append(" ").append(page.getOrderStyle())
 				.append(" limit ?,?");
 		page.setTotalItemNumber(selectRecordCount(post));
 		params.add((page.getPageNo() - 1) * page.getPageSize());
 		params.add(page.getPageSize());
-		//将查询的结果封装到page对象（List,怎么会有两个参数）
+		//将查询的结果封装到page对象
 		page.setData(this.execQuery(sql.toString(), params.toArray()));
 
 	}
 
 	/**
 	 * private 岗位的总行数
-	 *
 	 */
 	private Long selectRecordCount(Post post) {
 		StringBuilder sql = new StringBuilder(" select count(0) from sys_post where 1=1 ");
@@ -158,8 +155,7 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 	/**
 	 * 新增岗位
 	 * 
-	 * @param post
-	 *            岗位信息
+	 * @param post   岗位信息
 	 * @return 结果
 	 */
 	public Long insertPost(Post post) {
@@ -233,8 +229,7 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 	/**
 	 * 修改岗位
 	 * 
-	 * @param post
-	 *            岗位信息
+	 * @param post 岗位信息
 	 * @return 结果
 	 */
 	public Long updatePost(Post post) {
@@ -277,18 +272,10 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 	/**
 	 * 批量删除岗位
 	 * 
-	 * @param postIds
-	 *            需要删除的数据ID
+	 * @param postIds 需要删除的数据ID
 	 * @return 结果
 	 */
 	public int[] batchDeletePost(Integer[] postIds) {
-		/**
-		 * String：char数组是final的，不可变，修改String时实际上是new一个新String对象返回，线程安全，频繁的增删操作时不建议使用
-		 * StringBuffer：线程安全（StringBuffer中的方法中加synchronized锁），多线程建议使用这个，修改值时实际上是修改底层的char数组，相比String，开销更小
-		 * StringBuilder：非线程安全的（StringBuilder中的方法中没加synchronized锁）, 单线程使用这个更快，修改值时实际上是修改底层的char数组，相比String，开销更小
-		 * 取别名为了查数据库时取出名字
-		 * 遍历出id,然后跳转到BaseDaoImpl的batch()方法及进行删除
-		 */
 
 		StringBuilder sql = new StringBuilder("delete from sys_post where post_id in (?)");
 		Object[][] params = new Object[postIds.length][];
@@ -297,5 +284,11 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDaoI {
 		}
 		return this.batch(sql.toString(), params);
 	}
+
+    @Override
+    public List<Post> selectPostListUserId(int userId) {
+        StringBuilder sql = new StringBuilder("SELECT p.post_id postId , p.post_code postCode , p.post_name postName , p.post_sort postSort , p.status STATUS , p.create_by createBy , p.create_time createTime , p.update_by updateBy , p.update_time updateTime , p.remark remark FROM sys_user u INNER JOIN sys_user_post up ON u.user_id=up.user_id INNER JOIN  sys_post p ON up.post_id=p.post_id WHERE u.user_id=?");
+        return this.execQuery(sql.toString(), userId);
+    }
 
 }
