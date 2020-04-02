@@ -93,7 +93,7 @@
 <script type="text/javascript" src="js/system/user.js"></script>
 <script type="text/javascript" src="user.js"></script>
 <script>
-    //用户状态
+    //用户状态  查询条件下拉框
     var ctx = "http://localhost:8086/";
     $.ajax({
         url: ctx + "DictDataServlet?method=dictDataByType&dictType=sys_normal_disable",
@@ -179,25 +179,25 @@
                 valign: 'middle',
                 sortable: true
             },
-                {
-                    field: 'deptName',
-                    title: '部门',
-                    align: 'center',
-                    valign: 'middle',
-                    sortable: true
-                },
+            {
+                field: 'deptName',
+                title: '部门',
+                align: 'center',
+                valign: 'middle',
+                sortable: true
+            },
 
-                {
-                    title: '操作',
-                    align: 'center',
-                    formatter: function (value, row, index) {
-                        var actions = [];
-                        actions.push('<a class="btn btn-success btn-xs " href="javascript:void(0);" onclick="$.operate.reset(\'' + row.userId + '\')"><i class="fa fa-key"></i>重置</a> ');
-                        actions.push('<a class="btn btn-primary btn-xs " href="javascript:void(0);" onclick="$.operate.edit(\'' + row.userId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-                        actions.push('<a class="btn btn-danger btn-xs "  href="javascript:void(0);" onclick="$.operate.remove(\'' + row.userId + '\')"><i class="fa fa-remove"></i>删除</a> ');
-                        return actions.join('');
-                    }
-                }]
+            {
+                title: '操作',
+                align: 'center',
+                formatter: function (value, row, index) {
+                    var actions = [];
+                    actions.push('<a class="btn btn-success btn-xs " href="javascript:void(0);" onclick="$.operate.reset(\'' + row.userId + '\')"><i class="fa fa-key"></i>重置</a> ');
+                    actions.push('<a class="btn btn-primary btn-xs " href="javascript:void(0);" onclick="$.operate.edit(\'' + row.userId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                    actions.push('<a class="btn btn-danger btn-xs "  href="javascript:void(0);" onclick="$.operate.remove(\'' + row.userId + '\')"><i class="fa fa-remove"></i>删除</a> ');
+                    return actions.join('');
+                }
+            }]
         };
         $.table.init(options);
     });

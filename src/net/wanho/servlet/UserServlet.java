@@ -50,7 +50,18 @@ public class UserServlet extends BaseServlet {
     }
 
     protected String to_add(HttpServletRequest request, HttpServletResponse resp) {
-
+        //查询字典，性别字段
+        DictData dictData = new DictData();
+        dictData.setDictType("sys_user_sex");
+        List<DictData> genders = dictDataService.selectDictDataByType(dictData);
+        //将性别放到request作用域中，前台用el表达式访问
+        request.setAttribute("genders", genders);
+        //查询所有岗位
+        List<Post> posts = postService.selectPostList(new Post());
+        request.setAttribute("posts", posts);
+        //查询所有角色
+        List<Role> roles = roleService.selectRoleList(new Role());
+        request.setAttribute("roles",roles);
         return "forward:" + prefix + "edit.jsp";
     }
 
@@ -144,7 +155,6 @@ public class UserServlet extends BaseServlet {
         PrintWriter out = resp.getWriter();
         User user = new User();
         user.setLoginName("admin");
-
         try {
             //赋值操作
             BeanUtils.populate(user, map);
@@ -181,7 +191,24 @@ public class UserServlet extends BaseServlet {
 
     }
 
+    protected void reset(HttpServletRequest request, HttpServletResponse resp) throws IOException {
+        String id = request.getParameter("id");
+        PrintWriter out = resp.getWriter();
 
+
+        try {
+            userService.reset(id);
+            out.print(JSON.toJSON(new AjaxResult(0, "重置成功！", null)));
+        } catch (Exception e) {
+            e.printStackTrace();
+            out.print(JSON.toJSON(new AjaxResult(1, "重置失败！", null)));
+        }finally {
+            out.flush();
+            out.close();
+        }
+
+
+    }
 }
 
 

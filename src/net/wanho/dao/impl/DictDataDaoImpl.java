@@ -3,6 +3,7 @@ package net.wanho.dao.impl;
 import net.wanho.dao.DictDataDaoI;
 import net.wanho.po.DictData;
 import net.wanho.po.Role;
+import net.wanho.util.StringUtils;
 import net.wanho.vo.Page;
 
 import java.util.ArrayList;
@@ -19,8 +20,12 @@ public class DictDataDaoImpl extends BaseDaoImpl<DictData>  implements DictDataD
     @Override
     public List<DictData> selectDictDataByType(DictData dd) {
         StringBuilder sql = new StringBuilder(
-                "SELECT dd.dict_code dictCode,dd.dict_sort dictSort,dd.dict_label dictLabel,dd.dict_value dictValue,dd.dict_type dictType,dd.css_class cssClass,dd.is_default isDefault,dd.`status`,dd.create_by,dd.create_time,dd.update_by,dd.update_time,dd.remark FROM sys_dict_data AS dd where dict_type='sys_normal_disable'");
+                "SELECT dd.dict_code dictCode,dd.dict_sort dictSort,dd.dict_label dictLabel,dd.dict_value dictValue,dd.dict_type dictType,dd.css_class cssClass,dd.is_default isDefault,dd.`status`,dd.create_by,dd.create_time,dd.update_by,dd.update_time,dd.remark FROM sys_dict_data AS dd where 1=1 ");
         List<Object> params = new ArrayList<>();
+        if (StringUtils.isNotEmpty(dd.getDictType())) {
+            sql.append("AND dict_type like concat('%',?, '%')");
+            params.add(dd.getDictType());
+        }
         return this.execQuery(sql.toString(), params.toArray());
     }
 }

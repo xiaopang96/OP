@@ -46,9 +46,10 @@ public class DictDataServlet extends BaseServlet{
 
     protected void dictDataByType(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String dictType = request.getParameter("dictType");
         PrintWriter out = response.getWriter();
         DictData dd = new DictData();
+        dd.setDictType(dictType);
         try {
             List<DictData> list = dictDataService.selectDictDataByType(dd);
             out.println(JSON.toJSON(list));

@@ -33,4 +33,5 @@ public interface UserServiceI
 
     int[] deleteUserByIds(String ids);
 
+    void reset(String id);
 }

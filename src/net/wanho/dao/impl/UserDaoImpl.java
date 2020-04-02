@@ -85,45 +85,46 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDaoI {
     public Long updateUser(User user) {
         List<Object> params = new ArrayList<>();
         StringBuilder sql = new StringBuilder(" update sys_user set ");
-        if (StringUtils.isNotEmpty(user.getPhonenumber())) {
-            sql.append("phonenumber=?,");
-            params.add(user.getPhonenumber());
-        }
-        if (StringUtils.isNotEmpty(user.getStatus())) {
-            sql.append("status=?,");
-            params.add(user.getStatus());
-        }
-        if (StringUtils.isNotEmpty(user.getLoginName())) {
+        if(StringUtils.isNotEmpty(user.getLoginName())){
             sql.append("login_name=?,");
             params.add(user.getLoginName());
-        }
-        if (StringUtils.isNotEmpty(user.getUserName())) {
-            sql.append("user_name=?,");
-            params.add(user.getUserName());
-        }
-        if (user.getStatus().equals(0) || user.getStatus().equals(1)) {
-            sql.append("status=?,");
-            params.add(user.getStatus());
-        }
-        if (StringUtils.isNotEmpty(user.getEmail())) {
-            sql.append("email=?,");
-            params.add(user.getEmail());
-        }
-        if (StringUtils.isNotEmpty(user.getUpdateTimeStr())) {
-            sql.append("update_time=?,");
-            params.add(user.getUpdateTimeStr());
-        }
-        if (StringUtils.isNotEmpty(user.getPassword())) {
-            sql.append("password=?,");
-            params.add(user.getPassword());
         }
         if (StringUtils.isNotEmpty(user.getDeptId())) {
             sql.append("dept_id=?,");
             params.add(user.getDeptId());
         }
-        if (StringUtils.isNotEmpty(user.getRemark())) {
-            sql.append("remark=?");
-            params.add(user.getRemark());
+        if (StringUtils.isNotEmpty(user.getUserName())) {
+            sql.append("user_name=?,");
+            params.add(user.getUserName());
+        }
+        if (StringUtils.isNotEmpty(user.getPassword())) {
+            sql.append("password=?,");
+            params.add(user.getPassword());
+        }
+        if (StringUtils.isNotEmpty(user.getEmail())) {
+            sql.append("email=?,");
+            params.add(user.getEmail());
+        }
+        if (StringUtils.isNotEmpty(user.getPhonenumber())) {
+            sql.append("phonenumber=?,");
+            params.add(user.getPhonenumber());
+        }
+        if (StringUtils.isNotEmpty(user.getSex())) {
+            sql.append("sex=?,");
+            params.add(user.getSex());
+        }
+        if (StringUtils.isNotEmpty(user.getStatus())) {
+            sql.append("status=?,");
+            params.add(user.getStatus());
+        }
+
+        if (StringUtils.isNotEmpty(user.getUpdateTimeStr())) {
+            sql.append("update_time=?,");
+            params.add(user.getUpdateTimeStr());
+        }
+        if (StringUtils.isNotEmpty(user.getUpdateBy())) {
+            sql.append("update_by=?");
+            params.add(user.getUpdateBy());
         }
         StringUtils.trimEndComma(sql);
         sql.append(" where user_id = ? ");
@@ -140,26 +141,35 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDaoI {
         if (StringUtils.isNotEmpty(user.getUserId())) {
             sql.append("user_id,");
         }
-        if (StringUtils.isNotEmpty(user.getPhonenumber())) {
-            sql.append("phonenumber,");
-        }
-        if (StringUtils.isNotEmpty(user.getStatus())) {
-            sql.append("status,");
-        }
         if (StringUtils.isNotEmpty(user.getLoginName())) {
             sql.append("login_name,");
         }
-        if (user.getStatus().equals(0) || user.getStatus().equals(1)) {
+        if (StringUtils.isNotEmpty(user.getDeptId())) {
+            sql.append("dept_id,");
+        }
+        if (StringUtils.isNotEmpty(user.getUserName())) {
+            sql.append("user_name,");
+        }
+        if (StringUtils.isNotEmpty(user.getPassword())) {
+            sql.append("password,");
+        }
+        if (StringUtils.isNotEmpty(user.getEmail())) {
+            sql.append("email,");
+        }
+        if (StringUtils.isNotEmpty(user.getPhonenumber())) {
+            sql.append("phonenumber,");
+        }
+        if (StringUtils.isNotEmpty(user.getSex())) {
+            sql.append("sex,");
+        }
+        if (StringUtils.isNotEmpty(user.getStatus())) {
             sql.append("status,");
         }
         if (StringUtils.isNotEmpty(user.getCreateBy())) {
             sql.append("create_by,");
         }
         if (StringUtils.isNotEmpty(user.getCreateTimeStr())) {
-            sql.append("create_time,");
-        }
-        if (StringUtils.isNotEmpty(user.getRemark())) {
-            sql.append("remark");
+            sql.append("create_time");
         }
         StringUtils.trimEndComma(sql);
         sql.append(")values(");
@@ -167,9 +177,33 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDaoI {
             sql.append("?,");
             params.add(user.getUserId());
         }
+        if (StringUtils.isNotEmpty(user.getLoginName())) {
+            sql.append("?,");
+            params.add(user.getLoginName());
+        }
+        if (StringUtils.isNotEmpty(user.getDeptId())) {
+            sql.append("?,");
+            params.add(user.getDeptId());
+        }
+        if (StringUtils.isNotEmpty(user.getUserName())) {
+            sql.append("?,");
+            params.add(user.getUserName());
+        }
+        if (StringUtils.isNotEmpty(user.getPassword())) {
+            sql.append("?,");
+            params.add(user.getPassword());
+        }
+        if (StringUtils.isNotEmpty(user.getEmail())) {
+            sql.append("?,");
+            params.add(user.getEmail());
+        }
         if (StringUtils.isNotEmpty(user.getPhonenumber())) {
             sql.append("?,");
             params.add(user.getPhonenumber());
+        }
+        if (StringUtils.isNotEmpty(user.getSex())) {
+            sql.append("?,");
+            params.add(user.getSex());
         }
         if (StringUtils.isNotEmpty(user.getStatus())) {
             sql.append("?,");
@@ -179,21 +213,9 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDaoI {
             sql.append("?,");
             params.add(user.getCreateBy());
         }
-        if (user.getStatus().equals(0) || user.getStatus().equals(1)) {
-            sql.append("?,");
-            params.add(user.getStatus());
-        }
-        if (StringUtils.isNotEmpty(user.getCreateBy())) {
-            sql.append("?,");
-            params.add(user.getCreateBy());
-        }
         if (StringUtils.isNotEmpty(user.getCreateTimeStr())) {
-            sql.append("?,");
-            params.add(user.getCreateTimeStr());
-        }
-        if (StringUtils.isNotEmpty(user.getRemark())) {
             sql.append("?");
-            params.add(user.getRemark());
+            params.add(user.getCreateTimeStr());
         }
         StringUtils.trimEndComma(sql);
         sql.append(")");

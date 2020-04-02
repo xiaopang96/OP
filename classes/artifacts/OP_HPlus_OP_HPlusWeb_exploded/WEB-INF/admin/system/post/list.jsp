@@ -61,7 +61,7 @@
     <jsp:include page="/admin/footer.jsp" />
    <script type="text/javascript">
        
-        var prefix = ctx + "admin/post"
+        var prefix = ctx + "admin/post";
 
         $(function() {
             var options = {

@@ -7,6 +7,7 @@ import net.wanho.factory.ObjectFactory;
 import net.wanho.po.User;
 import net.wanho.service.UserServiceI;
 import net.wanho.util.Convert;
+import net.wanho.util.PwdUtils;
 import net.wanho.util.StringUtils;
 import net.wanho.vo.Page;
 
@@ -64,6 +65,20 @@ public class UserServiceImpl implements UserServiceI {
         Integer [] idsArray= Convert.toIntArray(",", ids);
         // batch 分批处理
         return userDao.batchDeleteUser(idsArray);
+    }
+
+    @Override
+    public void reset(String id) {
+        User user  = new User();
+        try {
+            user.setUserId(Integer.valueOf(id));
+            User dbUser = userDao.selectUserById(user.getUserId());
+            user.setPassword(PwdUtils.getPwd("123456", dbUser.getLoginName(),dbUser.getSalt()));
+            userDao.updateUser(user);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
